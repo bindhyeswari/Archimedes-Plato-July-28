@@ -21,11 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="0 Promises.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="0 Promises.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/0 Promises.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7107438">
-              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+            <state vertical-scroll-proportion="-10.75">
+              <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1 jQuery.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/1 jQuery.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5769231">
+              <caret line="13" column="41" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -44,6 +54,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/0 Promises.html" />
+        <option value="$PROJECT_DIR$/1 jQuery.html" />
       </list>
     </option>
   </component>
@@ -154,8 +165,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/0 Promises.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7107438">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        <state vertical-scroll-proportion="-10.75">
+          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1 jQuery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5769231">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="41" />
           <folding />
         </state>
       </provider>

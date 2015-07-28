@@ -25,11 +25,27 @@
             */
             var terms = ['nodejs', 'iot', 'durandal'];
 
-            Promise.all(terms.map(createPromise)).then(function (data) {
+            /*Promise.all(terms.map(createPromise)).then(function (data) {
                 console.log(data);
+            });*/
+
+           /* Promise.all([true, createPromise('nodejs')]).then(function (data) {
+                console.log(data);
+            });*/
+
+            var arr = [];
+            // todo: Make the changes to make the last promise show results
+            terms.reduce(function (promise, term){
+                return promise.then(function (data) {
+                    arr.push(data);
+                    return createPromise(term);
+                });
+            }, Promise.resolve('testing')).then(function (data) {
+                arr.push(data);
+                console.log(arr);
             });
 
-
+            // write a promise, when the promise resolves, pass the data into the next promise
 
         });
 
