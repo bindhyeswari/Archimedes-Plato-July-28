@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+
+        $(function () {
+            // jquery deferred
+            var d = $.Deferred(); // create a deferred object
+
+            d.then(function (data) {
+                console.log(data);
+            });
+
+            function randomPrint(i, callback) {
+                var interval = ~~(Math.random() * 1000);
+                setTimeout(function () {
+                    callback({
+                        i: i,
+                        interval: interval
+                    });
+                }, interval);
+            }
+
+            function cb(data) {
+                console.log(data);
+            }
+
+            randomPrint(1, cb);
+            randomPrint(2, cb);
+            randomPrint(3, cb);
+            randomPrint(4, cb);
+            randomPrint(5, cb);
+
+
+
+        });
+
+    </script>
+</head>
+<body>
+</body>
+</html>

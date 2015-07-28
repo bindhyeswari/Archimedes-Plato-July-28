@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+
+        $(function () {
+            // write code to print out the li's innerHTML when the li element is clicked
+            $('ul').on('click','li', function () {
+                console.log($(this).html());
+            });
+
+            $('ul').on('click', function (event) {
+                console.log($(event.target).html());
+            });
+        });
+
+        $.ajax({
+            method: 'get',
+            url: 'https://api.github.com/search/repositories?q=angular',
+            dataType: 'json',
+            beforeSend: function () {
+                console.log('beforeSend ... ');
+                console.log(arguments);
+                // write a notify function --> show progress of your file uploads
+                // xhr.upload.addEventListener('progress', function (e) {e.loaded, e.total});
+            },
+            // contentType: 'application/json',
+            success: function (data, textStatus, jqXHR) {
+                console.log('successfully completed call');
+                console.log(data, textStatus, jqXHR);
+            },
+            error: function(jqXHR, status, err) {
+                console.log('something went wrong');
+                console.log(jqXHR, status, err);
+            },
+            complete: function (jqXHR, statusText) {
+                console.log('call is complete');
+            }
+        }).then(function () {
+            console.log('code from .then() ... ');
+            console.log(arguments);
+            console.log('===END======');
+        }, function () {}, function () {
+            // notify callbacks ...
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+</body>
+</html>

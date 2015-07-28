@@ -3,17 +3,46 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="base.css"/>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <style>
+
+        div {
+            padding: 0.5em 0.75em;
+            border: 1px solid gray;
+            margin: 1em;
+        }
+
+        div.selected {
+            background-color: red;
+        }
+    </style>
     <script>
 
         // change the background color of div based in input checkbox
         $(function () {
-            $('div').click(function (event) {
-                console.log(event);
-                console.log($(this).html());
+            $('input[type="checkbox"]').click(function () {
+                $('div').toggleClass('selected');
             });
 
-            // .on()
+            // multiple events
+            $('button').on('click mouseenter mouseup mousedown mouseleave', function (event) {
+                console.log('handling events on button ... ');
+            });
+
+            var o = {
+                name:'Ronak'
+            };
+
+            $('span').click(function () {
+                o.name = 'Charles';
+            });
+
+            // event delegation
+            $('div.container').on('click', 'div > div', o, function (event) {
+                console.log('You clicked on ', event.target);
+                console.log('The name is: ', event.data.name);
+            });
         });
 
     </script>
@@ -21,5 +50,17 @@
 <body>
 <input type="checkbox"/>
 <div>Data</div>
+<button>Click to Print</button>
+
+<div class="container">
+    <span>Click on this span</span>
+    <div>
+        <div>This is a child div
+            <div>This is a grandchild</div>
+        </div>
+    </div>
+    <a href="">This is a hyperlink</a>
+</div>
+
 </body>
 </html>
