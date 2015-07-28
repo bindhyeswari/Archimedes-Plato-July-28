@@ -36,6 +36,30 @@
             $(document.body).addClass('body-class');
         });
 
+        $(function () {
+            // apply css classes based upon the index of the element:
+            $('div').addClass(function (index) {
+                return index % 2 === 0 ? 'odd' : 'even';
+            });
+
+            $('span').attr('data-uuid', function (index) { // acts as a settter - two inputs to the attrs
+                return 'asdfd-asdf56as4df5as4df' + index;
+            });
+            $('span').attr('data-uuid'); // acts as a getter - one input to attr
+            console.log($('input[type="checkbox"]').prop('checked')); // use this with boolean attributes
+            console.log($('input[type="checkbox"]').attr('checked'));
+            console.log($('input[type="text"]').attr('value', 'Charles Park')); // acts as a getter and setter: no input | string input
+            console.log($('input[type="text"]').val('Charles Park')); // acts as a getter and setter: no input | string input
+
+
+            console.log(document.body.firstElementChild.style.backgroundColor);
+            $('div').css('background-color', function (index, old_value) {
+                console.log(index, old_value);
+            });
+        });
+
+
+
 
 
     </script>
@@ -46,5 +70,8 @@
     <div></div>
     <div></div>
     <div></div>
+    <span></span>
+    <input type="checkbox" checked/>
+    <input type="text" value="Alejandro"/>
 </body>
 </html>
