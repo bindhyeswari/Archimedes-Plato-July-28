@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+
+        $(function () {
+
+            // create a deferred object
+            var d = $.Deferred();
+
+            // manually resolve the deferred object
+            d.reject({
+                name: 'Ronak'
+            });
+
+            // access the promise within the deferred
+            console.log(d.promise); // run the then method
+
+            d.then(function (data) {
+                console.log(data);
+            }, function (data) {
+                console.log(data);
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+</body>
+</html>
+

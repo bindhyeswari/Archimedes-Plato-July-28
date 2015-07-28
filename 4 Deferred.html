@@ -14,6 +14,9 @@
                 console.log(data);
             });
 
+            d.resolve('information');
+
+
             function randomPrint(i, callback) {
                 var interval = ~~(Math.random() * 1000);
                 setTimeout(function () {
@@ -24,16 +27,50 @@
                 }, interval);
             }
 
+            function createRandomPrintDeferred(i) {
+                // create deferred object
+                var d = $.Deferred();
+                // call the random print
+                // use the d.resolve as the callback
+                randomPrint(i, d.resolve);
+                return d;
+            }
+
             function cb(data) {
                 console.log(data);
             }
 
-            randomPrint(1, cb);
-            randomPrint(2, cb);
-            randomPrint(3, cb);
-            randomPrint(4, cb);
-            randomPrint(5, cb);
+            var x = createRandomPrintDeferred(1);
+            var y = createRandomPrintDeferred(2);
+            var z = createRandomPrintDeferred(3);
+            //randomPrint(2, cb);
+            //randomPrint(3, cb);
+            //randomPrint(4, cb);
+            //randomPrint(5, cb);
 
+/*            $.when(x, y, z).then(function () {
+                console.log(arguments);
+            });*/
+
+            var arr = [10, 11, 12, 13];
+
+            // run in parallel
+            $.when.apply($, arr.map(createRandomPrintDeferred)).then(function () {
+                // console.log(arguments);
+            });
+
+            var series = [101, 102, 103, 104];
+            var x = $.Deferred();
+            // run this in series ... console log data for the first one before the second is fired
+            series.reduce(function (deferred, num) {
+                return deferred.then(function (data) {
+                    console.log(data);
+                    return createRandomPrintDeferred(num);
+                });
+            }, x).then(function (data) {
+                console.log(data);
+            });
+            x.resolve('begin');
 
 
         });

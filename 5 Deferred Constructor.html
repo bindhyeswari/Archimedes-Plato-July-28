@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <title>Document</title>
+    <script>
+
+        function randomPrint(i, callback) {
+            var interval = ~~(Math.random() * 1000);
+            setTimeout(function () {
+                callback({
+                    i: i,
+                    interval: interval
+                });
+            }, interval);
+        }
+
+        function createDeferred(i) {
+            return new $.Deferred(function (d) {
+                randomPrint(i, d.resolve);
+            });
+        }
+
+        createDeferred(10).then(function (data) {
+            console.log('printing from the promise ... ', data);
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
